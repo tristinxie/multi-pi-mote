@@ -3,6 +3,7 @@ from flask_cors import CORS
 import threading
 from gpiozero import LED, Device
 from gpiozero.pins.mock import MockFactory
+from waitress import serve
 
 Device.pin_factory = MockFactory()
 
@@ -29,6 +30,5 @@ def release_button():
     return jsonify({"message": "Button released"})
 
 if __name__ =="__main__":
-    app.run()
-    # from waitress import serve
-    # serve(app, port=5000, host="0.0.0.0")
+    # app.run()
+    serve(app, port=5001, host="0.0.0.0")
