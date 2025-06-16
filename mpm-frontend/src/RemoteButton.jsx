@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const RemoteButton = ({buttonDown, setButtonDown}) => {
 	const requestPush = async () => {
-		const url = "http://" + import.meta.env.VITE_SERVER_IP + ":" + import.meta.env.VITE_SERVER_PORT + "/activate_button";
+		const url = "https://" + import.meta.env.VITE_SERVER_IP + "/api/activate_button";
 		const request = {
 			method: "POST",
 		}
@@ -12,7 +12,7 @@ const RemoteButton = ({buttonDown, setButtonDown}) => {
 		}
 	};
 	const requestRelease = async () => {
-		const url = "http://" + import.meta.env.VITE_SERVER_IP + ":" + import.meta.env.VITE_SERVER_PORT + "/release_button";
+		const url = "https://" + import.meta.env.VITE_SERVER_IP + ":" + "/api/release_button";
 		const request = {
 			method: "POST",
 		}

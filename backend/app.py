@@ -9,7 +9,7 @@ import os
 from datetime import datetime
 import json
 
-Device.pin_factory = MockFactory()
+# Device.pin_factory = MockFactory()
 DATABASE_PATH = "metadata.db"
 led = LED(17)
 app = Flask(__name__)
@@ -24,11 +24,11 @@ def get_metadata():
         res = cur.fetchall()[::-1]
         return json.dumps(dict(res))
 
-@app.route("/button_state", methods=['GET'])
+@app.route("/api/button_state", methods=['GET'])
 def get_button_state():
     return jsonify({"state": led.is_lit})
 
-@app.route("/activate_button", methods=['POST'])
+@app.route("/api/activate_button", methods=['POST'])
 def activate_button():
     led.on()
     with sql.connect(DATABASE_PATH) as con:
@@ -39,7 +39,7 @@ def activate_button():
     timer.start()
     return jsonify({"message": "Button activated"})
 
-@app.route("/release_button", methods=['POST'])
+@app.route("/api/release_button", methods=['POST'])
 def release_button():
     led.off()
     return jsonify({"message": "Button released"})
