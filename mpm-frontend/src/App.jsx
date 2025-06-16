@@ -9,7 +9,7 @@ function App() {
     fetchButton()
   }, [])
   const fetchButton = async () => {
-		const url = "http://" + import.meta.env.VITE_SERVER_IP + ":" + import.meta.env.VITE_SERVER_PORT + "/button_state";
+		const url = "https://" + import.meta.env.VITE_SERVER_IP +  "/api/button_state";
     const res = await fetch(url);
     const data = await res.json();
     setButtonDown(data.state)
