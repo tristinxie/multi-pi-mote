@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app)
 def failsafe_off():
     led.off()
-@app.route("/metadata", methods=['GET'])
+@app.route("/api/metadata", methods=['GET'])
 def get_metadata():
     with sql.connect(DATABASE_PATH) as con:
         cur = con.cursor()

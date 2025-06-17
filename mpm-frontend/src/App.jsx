@@ -21,7 +21,7 @@ function App() {
   }
 
   const fetchMetadata = async () => {
-		const url = "http://" + import.meta.env.VITE_SERVER_IP + ":" + import.meta.env.VITE_SERVER_PORT + "/metadata";
+		const url = "https://" + import.meta.env.VITE_SERVER_IP + "/api/metadata";
     const res = await fetch(url);
     let data = await res.json();
     data = Object.entries(data)
